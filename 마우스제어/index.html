@@ -17,12 +17,12 @@
         let y = 0
         let mx = 0
         let my = 0
-        let speed = 0.03
+        let speed = 0.05
         let cursor_item
         
         window.onload = function(){
         
-            window.addEventListener("mousemove",mouseFun,false)
+            window.addEventListener("click",mouseFun,false)
             
                 let h1 = document.getElementsByTagName("h1")[0]
                 cursor_item = document.getElementsByClassName("cursor_item")[0]
@@ -32,16 +32,22 @@
                      x = e.clientX
                      y = e.clientY
                     h1.innerHTML = x + " " + y 
+                    cursor_item.style.transform = "translate(" + x + "px," + y + "px)"
                 }
-            loop()   
-        }
+                /**
+                 * transition 설정할 수 있는 사이트
+                 * https://matthewlein.com/tools/ceaser
+                */
+               
+                // loop()   
+            }
             
-        function loop(){
-            mx += (x - mx) * speed
-            my += (y - my) * speed
-            cursor_item.style.transform = "translate(" + mx + "px," + my + "px)"
-            window.requestAnimationFrame(loop)
-        }
+        // function loop(){
+        //     mx += (x - mx) * speed
+        //     my += (y - my) * speed
+        //     cursor_item.style.transform = "translate(" + mx + "px," + my + "px)"
+        //     window.requestAnimationFrame(loop)
+        // }
          
     </script>
 </body>

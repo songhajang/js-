@@ -16,4 +16,7 @@ h1{
     background-color: yellow;
     top: 10px;
     left: 0;
+
+    margin: -50px 0 0 =50px;
+    transition: all 500ms cubic-bezier(0.770, -0.600, 0.480, 1.650); ;
 }
