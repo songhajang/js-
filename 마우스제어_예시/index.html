@@ -11,6 +11,7 @@
     <div class="bg">
         <h1>test</h1>
         <img src="./img/people.png" alt="사람" class="people">
+        <img src="./img/flower.png" alt="꽃" class="flower">
     </div>
 
     <script>
@@ -23,7 +24,7 @@
 
         let h1
         let people     
-        let bg
+        let flower
         
         window.onload = function(){
         
@@ -31,6 +32,7 @@
             
                 h1 = document.getElementsByTagName("h1")[0]
                 people = document.getElementsByClassName("people")[0]
+                flower = document.getElementsByClassName("flower")[0]
 
                 function mouseFun(e){
                      x = (e.clientX - window.innerWidth / 2)
@@ -44,7 +46,7 @@
                 mx += (x - mx) * speed
                 my += (y - my) * speed
                 people.style.transform = "translate(" + -(mx / 10) + "px," + -(my / 6) + "px)"
-                bg.style.transform = "translate(" + (mx / 3) + "px," + (my / 3) + "px)"
+                flower.style.transform = "translateX(" + (mx / 6) + "px)"
 
                 window.requestAnimationFrame(loop)
             }
