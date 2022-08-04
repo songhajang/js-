@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section>
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/1-b90e91a4.png">
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/2-f3fd6cf5.png">
+        <div class="vod"><video autoplay="" playsinline="" loop="" muted=""
+                src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/videos/3-27c8c3ea.webm"></video>
+        </div>
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/4-105dd65b.png">
+        <img src="https://paidpost-assets.nyt.com/paidpost/allbirds/birds-eye-view/images/5-ac49bfdc.png">
+
+    </section>
+
+    <script>
+         let x = 0
+        let y = 0
+        let mx = 0
+        let my = 0
+        let speed = 0.05
+
+        let imgArr     
+        let bird
+        
+        window.onload = function(){
+        
+            window.addEventListener("mousemove",mouseFun,false)
+            
+                imgArr = document.getElementsByTagName("img")
+                bird = document.getElementsByClassName("vod")[0]
+
+                function mouseFun(e){
+                     x = (e.clientX - window.innerWidth / 2)
+                     y = (e.clientY - window.innerHeight / 2)
+                }
+                loop()   
+            }
+            
+            function loop(){
+                mx += (x - mx) * speed
+                my += (y - my) * speed
+                
+                imgArr[0].style.transform = "translate(" + -(mx / 8) + "px," + -(my / 8) + "px)"
+                imgArr[1].style.transform = "translate(" + -(mx / 6) + "px," + -(my / 6) + "px)"
+                imgArr[2].style.transform = "translate(" + -(mx / 4) + "px," + -(my / 4) + "px)"
+                imgArr[3].style.transform = "translate(" + -(mx / 2) + "px," + -(my / 2) + "px)"
+                
+                // bird.style.transform = "translateX(" + -(mx / 10) + "px," + -(my / 10) + "px)"
+
+                window.requestAnimationFrame(loop)
+            }
+
+    </script>
+</body>
+
+</html>
